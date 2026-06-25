@@ -73,20 +73,19 @@
       ]
     ]
 
-  } else if s == "projects" {
-    if projects.len() > 0 [
-      == Projects
-      #for p in projects [
-        #project(
-          name:  p.name,
-          role:  maybe(p.role),
-          dates: dates-helper(start-date: p.start, end-date: p.end),
-          ..if maybe(p.url) != none { (url: p.url) },
-        )
-        #for b in p.bullets [- #eval(b, mode: "markup")]
-        #if p.bullets.len() == 0 [ #v(2pt) ]
-      ]
+} else if s == "projects" {
+  if projects.len() > 0 [
+    == Projects
+    #for p in projects [
+      #project(
+        name: maybe(p.role),
+        role: strong(p.name),
+        ..if maybe(p.url) != none { (url: p.url) },
+      )
+      #for b in p.bullets [- #eval(b, mode: "markup")]
+      #if p.bullets.len() == 0 [ #v(2pt) ]
     ]
+  ]
 
   } else if s == "education" {
     if education.len() > 0 [
@@ -96,7 +95,7 @@
           institution: e.institution,
           location:    maybe(e.location),
           dates:       dates-helper(start-date: e.start, end-date: e.end),
-          degree:      maybe(e.degree),
+          degree: maybe(eval(e.degree, mode: "markup")),
         )
         #for b in e.bullets [- #eval(b, mode: "markup")]
         #if e.bullets.len() == 0 [ #v(2pt) ]

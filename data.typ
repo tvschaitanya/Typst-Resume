@@ -1,120 +1,108 @@
 // ── Application Target ────────────────────────────────────────────────────────
 // Not rendered — for your reference only
 
-#let target-company = "Anthropic"
-#let target-role    = "Senior Machine Learning Engineer"
-#let target-job-id  = "JOB-12345"
+#let target-company = "Amazon Web Services"
+#let target-role    = "Senior Cloud Engineer"
+#let target-job-id  = "JOB-67890"
 
 
 // ── Summary ───────────────────────────────────────────────────────────────────
-// Set to "" to omit the section
 
-#let summary = "Software engineer with 4+ years of experience building and deploying cloud-native applications and machine learning pipelines. Skilled in designing scalable distributed systems on AWS and GCP, fine-tuning large language models, and delivering production-grade APIs. Strong background in MLOps, infrastructure-as-code, and cross-functional collaboration."
+#let summary = "Cloud engineer with 5+ years of experience designing, deploying, and operating large-scale infrastructure on AWS and GCP. Proven track record building resilient distributed systems, automating infrastructure with Terraform and Kubernetes, and driving cost efficiency across multi-region environments. Strong collaborator across platform, security, and product teams."
 
 
 // ── Skills ────────────────────────────────────────────────────────────────────
-// Each entry: label (bolded) + comma-separated items string
 
 #let skills = (
-  (label: "Languages",      items: "Python, TypeScript, Go, SQL, Bash, YAML"),
-  (label: "AI & ML",        items: "PyTorch, TensorFlow, Hugging Face Transformers, LangChain, OpenAI API, scikit-learn, Pandas, NumPy"),
-  (label: "Cloud & DevOps", items: "AWS (EC2, S3, Lambda, SageMaker), GCP (Vertex AI, BigQuery, Cloud Run), Docker, Kubernetes, Terraform, CI/CD, GitHub Actions"),
+  (label: "Languages",      items: "Python, Go, Bash, TypeScript, SQL, YAML"),
+  (label: "Cloud & Infra",  items: "AWS (EC2, S3, RDS, Lambda, EKS, VPC, IAM, CloudWatch), GCP (GKE, Cloud Run, BigQuery, Cloud Storage), Azure (AKS, Blob Storage)"),
+  (label: "DevOps & Tools", items: "Terraform, Kubernetes, Helm, Docker, Ansible, GitHub Actions, Jenkins, ArgoCD, Prometheus, Grafana, Datadog"),
 )
 
 
 // ── Experience ────────────────────────────────────────────────────────────────
-// Set company or location to "" to omit them
 
 #let work-experience = (
   (
-    title:    "Senior Machine Learning Engineer",
-    company:  "Cloudware AI",
-    location: "San Francisco, CA",
-    start:    "Jun 2023",
+    title:    "Senior Cloud Engineer",
+    company:  "Stratosphere Technologies",
+    location: "Seattle, WA",
+    start:    "Mar 2022",
     end:      "Present",
     bullets: (
-      "Designed and deployed a RAG-based document intelligence platform on AWS using LangChain, FAISS, and GPT-4, reducing manual document review time by 70%",
-      "Built and maintained MLOps pipelines on SageMaker for model training, evaluation, and A/B deployment across 12 production models serving 5M+ daily requests",
-      "Led migration of monolithic inference service to containerized microservices on EKS, improving p99 latency by 40% and cutting infrastructure costs by 30%",
-      "Mentored 3 junior engineers on LLM fine-tuning workflows and cloud cost optimization best practices",
-    ),
-  ),
-  (
-    title:    "Machine Learning Engineer",
-    company:  "DataBridge Corp",
-    location: "Austin, TX",
-    start:    "Aug 2021",
-    end:      "May 2023",
-    bullets: (
-      "Fine-tuned open-source LLMs (LLaMA 2, Mistral) using LoRA and PEFT on GCP Vertex AI for domain-specific NLP tasks, achieving 18% improvement over baseline",
-      "Developed real-time anomaly detection system using streaming data from Pub/Sub and BigQuery ML, reducing incident response time by 55%",
-      "Automated model retraining and monitoring pipelines with Airflow and Terraform, eliminating 15+ hours of manual ops work per week",
-      "Collaborated with product and data teams to define ML feature roadmap and translate business requirements into model specifications",
+      "Architected and maintained multi-region AWS infrastructure serving 8M+ daily active users with 99.99% uptime SLA",
+      "Led Kubernetes migration from EC2-based deployments to EKS, reducing deployment time by 60% and improving resource utilization by 35%",
+      "Built self-service infrastructure provisioning platform with Terraform modules and GitHub Actions, cutting new environment setup from 3 days to under 2 hours",
+      "Reduced AWS spend by 40% through reserved instance planning, auto-scaling policies, and S3 lifecycle optimization across 15 accounts",
+      "Mentored 4 mid-level engineers on IaC best practices, security hardening, and cloud cost governance",
     ),
   ),
   (
     title:    "Cloud Infrastructure Engineer",
-    company:  "NexGen Systems",
-    location: "Seattle, WA",
-    start:    "May 2020",
-    end:      "Jul 2021",
+    company:  "Orion Data Systems",
+    location: "Austin, TX",
+    start:    "Jun 2020",
+    end:      "Feb 2022",
     bullets: (
-      "Provisioned and managed multi-region AWS infrastructure using Terraform and CloudFormation for a SaaS platform serving 200K users",
-      "Implemented CI/CD pipelines with GitHub Actions and AWS CodePipeline, reducing deployment cycle from 2 days to under 2 hours",
-      "Optimized cloud spend by 35% through reserved instance planning, S3 lifecycle policies, and right-sizing of EC2 workloads",
+      "Designed and operated hybrid cloud networking across AWS and on-prem using Transit Gateway, Direct Connect, and VPN tunnels",
+      "Implemented centralized logging and observability stack using CloudWatch, Prometheus, and Grafana, reducing mean time to detect incidents by 50%",
+      "Automated OS patching and compliance enforcement across 300+ EC2 instances using AWS Systems Manager and Ansible",
+      "Collaborated with security team to achieve SOC 2 Type II compliance by enforcing IAM least-privilege policies and enabling AWS Config rules",
+    ),
+  ),
+  (
+    title:    "DevOps Engineer",
+    company:  "BrightPath Software",
+    location: "Denver, CO",
+    start:    "Jul 2018",
+    end:      "May 2020",
+    bullets: (
+      "Built and maintained CI/CD pipelines with Jenkins and GitHub Actions for a team of 30 engineers, reducing release cycle from weekly to daily",
+      "Containerized 12 legacy applications using Docker and deployed to GKE, improving portability and reducing environment drift",
+      "Provisioned and managed GCP infrastructure with Terraform for a B2B SaaS product serving 50K+ users",
     ),
   ),
 )
 
 
 // ── Projects ──────────────────────────────────────────────────────────────────
-// Set role or url to "" to omit them
 
 #let projects = (
   (
-    name:  "OpenInfer",
-    role:  "Creator & Maintainer",
-    start: "Jan 2024",
+    name:  "TerraStack",
+    role:  "Python, Terraform, AWS, GitHub Actions",
+    start: "Feb 2023",
     end:   "Present",
-    url:   "openinfer.dev",
+    url:   "terrastack.dev",
     bullets: (
-      "Open-source LLM inference server built with Python and FastAPI, supporting OpenAI-compatible endpoints for self-hosted models with 1.2K+ GitHub stars",
-      "Implemented dynamic batching, quantization (GPTQ, AWQ), and multi-GPU support, achieving 3x throughput vs naive serving baseline",
-      "Deployed reference infrastructure on AWS with Terraform and Docker; full observability via Prometheus and Grafana dashboards",
+      "Open-source CLI tool for generating production-ready Terraform modules from YAML config files, with 900+ GitHub stars",
+      "Supports AWS, GCP, and Azure providers with built-in security baselines and cost tagging conventions",
+      "Used in CI pipelines via a GitHub Actions integration for automated plan, validate, and drift detection workflows",
     ),
   ),
   (
-    name:  "CloudCost Analyzer",
-    role:  "Lead Developer",
-    start: "Sep 2023",
-    end:   "Dec 2023",
+    name:  "CloudWatch Slack Alerter",
+    role:  "Python, AWS Lambda, Terraform",
+    start: "Nov 2022",
+    end:   "Jan 2023",
     url:   "",
     bullets: (
-      "Built an AI-powered AWS cost analysis tool using GPT-4 and the AWS Cost Explorer API to surface savings recommendations in plain English",
-      "Reduced average cloud bill by 22% across 10 pilot teams by automating idle resource detection and right-sizing suggestions",
+      "Serverless alert routing system that forwards CloudWatch alarms to Slack channels with context-enriched messages and runbook links",
+      "Deployed via Terraform with SNS, Lambda, and Secrets Manager; adopted by 6 internal teams within the first month",
     ),
   ),
 )
 
 
 // ── Education ─────────────────────────────────────────────────────────────────
-// Set degree or location to "" to omit them
 
 #let education = (
   (
-    institution: "University of California, San Diego",
-    location:    "San Diego, CA",
-    start:       "Sep 2020",
-    end:         "Jun 2022",
-    degree:      "Master of Science, Computer Science — GPA: 4.0",
-    bullets:     (),
-  ),
-  (
-    institution: "University of California, San Diego",
-    location:    "San Diego, CA",
-    start:       "Sep 2016",
-    end:         "Jun 2020",
-    degree:      "Bachelor of Science, Computer Science",
+    institution: "University of Washington",
+    location:    "Seattle, WA",
+    start:       "Sep 2014",
+    end:         "Jun 2018",
+    degree:      "Bachelor of Science, Computer Engineering - *GPA*: 4.0",
     bullets:     (),
   ),
 )
@@ -123,8 +111,9 @@
 // ── Certifications ────────────────────────────────────────────────────────────
 
 #let certifications = (
-  (name: "AWS Certified Machine Learning – Specialty"),
-  (name: "Google Professional Machine Learning Engineer"),
-  (name: "AWS Certified Solutions Architect – Associate"),
+  (name: "AWS Certified Solutions Architect – Professional"),
+  (name: "AWS Certified DevOps Engineer – Professional"),
   (name: "Certified Kubernetes Administrator (CKA)"),
+  (name: "HashiCorp Certified: Terraform Associate"),
+  (name: "Google Professional Cloud Architect"),
 )
