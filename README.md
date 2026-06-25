@@ -19,8 +19,18 @@ The output PDF is named from your initials and the target role, e.g. `Resume_JD_
 
 ## Requirements
 
-- [Typst](https://github.com/typst/typst) installed and on your `PATH`
+- Typst installed and on your `PATH` (see below)
 - Bash (macOS/Linux or WSL on Windows)
+
+## Installing Typst
+
+**macOS**
+```bash
+brew install typst
+```
+
+**Other platforms** — pre-built binaries, Windows (`winget`), Linux package managers, Cargo, Nix, and Docker:
+[github.com/typst/typst#installation](https://github.com/typst/typst#installation)
 
 ---
 
