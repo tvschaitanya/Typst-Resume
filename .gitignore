@@ -1,0 +1,19 @@
+# Output
+exports/
+*.pdf
+
+# Typst cache
+.typst/
+
+# LaTeX artifacts
+*.aux *.log *.out *.toc *.synctex.gz *.fls *.fdb_latexmk
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
