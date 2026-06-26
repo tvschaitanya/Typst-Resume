@@ -92,7 +92,25 @@ Each entry takes `title`, `company`, `location`, `start`, `end`, and a tuple of 
 )
 ```
 
-Bullets support inline Typst markup — use `*bold*`, `_italic_`, or `#link("url")[text]`.
+Bullets support inline Typst markup:
+
+| Syntax | Output |
+|---|---|
+| `*bold text*` | **bold text** |
+| `_italic text_` | _italic text_ |
+| `#link("https://example.com")[label]` | clickable hyperlink |
+| `*bold* and _italic_ mixed` | mix freely |
+
+Example:
+
+```typst
+bullets: (
+  "Reduced latency by *40%* through query optimization",
+  "Open-sourced at #link(\"https://github.com/you/project\")[github.com/you/project]",
+),
+```
+
+Leave bullets empty with `bullets: ()` to render the entry with no bullet points.
 
 ---
 
@@ -130,7 +148,7 @@ Bullets support inline Typst markup — use `*bold*`, `_italic_`, or `#link("url
 )
 ```
 
-The `degree` field supports inline Typst markup.
+The `degree` field supports inline Typst markup (same rules as bullets above). `bullets: ()` is valid — it just renders nothing below the degree line.
 
 ---
 
@@ -145,9 +163,22 @@ The `degree` field supports inline Typst markup.
 
 ---
 
-### 3. Control Section Order — `main.typ`
+### 3. Hiding Sections
 
-At the top of `main.typ`, reorder, comment out, or remove sections:
+Any section whose data is empty is automatically hidden — no extra config needed:
+
+```typst
+#let certifications = ()   // section won't appear at all
+#let summary = ""          // summary section won't appear
+```
+
+This works for all sections: `skills`, `work-experience`, `projects`, `education`, `certifications`.
+
+---
+
+### 4. Control Section Order — `main.typ`
+
+At the top of `main.typ`, reorder, comment out, or remove entries to control what appears and where:
 
 ```typst
 #let section-order = (
@@ -159,6 +190,40 @@ At the top of `main.typ`, reorder, comment out, or remove sections:
   "certifications",
 )
 ```
+
+Valid section names: `"summary"`, `"skills"`, `"experience"`, `"projects"`, `"education"`, `"certifications"`. Unknown names are silently ignored.
+
+---
+
+### 5. Theme Options — `main.typ`
+
+The `#show: resume.with(...)` block at the top of `main.typ` controls the visual style:
+
+```typst
+#show: resume.with(
+  author:                  name,
+  location:                maybe(location),
+  email:                   maybe(email),
+  github:                  maybe(github),
+  linkedin:                maybe(linkedin),
+  phone:                   maybe(phone),
+  personal-site:           maybe(personal-site),
+  accent-color:            "#000000",   // hex color for section headings
+  font:                    "Times New Roman",
+  paper:                   "us-letter", // or "a4"
+  author-position:         center,      // left, center, or right
+  personal-info-position:  center,      // left, center, or right
+)
+```
+
+Common tweaks:
+
+| Field | Example values |
+|---|---|
+| `accent-color` | `"#000000"` (black), `"#2563eb"` (blue), `"#16a34a"` (green) |
+| `font` | `"Times New Roman"`, `"Arial"`, `"Libertinus Serif"` |
+| `paper` | `"us-letter"` (default), `"a4"` |
+| `author-position` | `left`, `center`, `right` |
 
 ---
 
@@ -184,7 +249,7 @@ cargo install --git https://github.com/typst/typst --locked typst-cli
 ./quick-save.sh
 ```
 
-Output is saved to `exports/Resume_<Initials>_<target-role>.pdf` — named automatically from your `contact.typ` and `data.typ`.
+Output is saved to `exports/Resume_<Initials>_<target-role>.pdf`, named automatically from your name in `contact.typ` and `target-role` in `data.typ`. For example, Jane Smith targeting "Senior Software Engineer" produces `exports/Resume_JS_senior_software_engineer.pdf`. If a file with that name already exists, it appends a number (`-1`, `-2`, etc.) rather than overwriting.
 
 ---
 
