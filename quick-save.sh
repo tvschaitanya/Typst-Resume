@@ -1,5 +1,5 @@
 #!/bin/bash
-# Usage: ./quick-save.sh [-c] [watch]
+# Usage: ./quick-save.sh [-c] [-w]
 
 set -euo pipefail
 
@@ -14,15 +14,14 @@ done
 CMD="compile"
 CLEAR=false
 
-while getopts ":c" opt; do
+while getopts ":cw" opt; do
   case $opt in
     c) CLEAR=true ;;
-    *) echo "usage: $0 [-c] [watch]" >&2; exit 1 ;;
+    w) CMD="watch" ;;
+    *) echo "usage: $0 [-c] [-w]" >&2; exit 1 ;;
   esac
 done
 shift $((OPTIND - 1))
-
-[[ "${1:-}" == "watch" ]] && CMD="watch"
 
 # -- clear --
 if $CLEAR; then
@@ -45,8 +44,12 @@ mkdir -p exports
 
 # -- collision check --
 if [[ -f "$OUT" && "$CMD" == "compile" ]]; then
-  STAMP=$(date +"%Y-%m-%d_%I%M%p")
-  OUT="exports/Resume_${INITIALS}_${ROLE}_${STAMP}.pdf"
+  BASE="exports/Resume_${INITIALS}_${ROLE}"
+  N=1
+  while [[ -f "${BASE}-${N}.pdf" ]]; do
+    ((N++))
+  done
+  OUT="${BASE}-${N}.pdf"
   echo "note: file exists, writing to $OUT"
 fi
 
