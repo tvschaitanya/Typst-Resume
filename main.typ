@@ -31,7 +31,7 @@
   github:                maybe(github),
   linkedin:              maybe(linkedin),
   phone:                 maybe(phone),
-  personal-site:         maybe(personal-site),
+  ..if maybe(personal-site) != none { (personal-site: personal-site) },
   accent-color:          "#000000",
   font:                  "Times New Roman",
   paper:                 "us-letter",
